@@ -1,0 +1,19 @@
+@page
+@model SecureLogin.Pages.LoginModel
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Login</title></head>
+<body>
+    <h1>Login</h1>
+    <p>Use your username and password to sign in.</p>
+    <div asp-validation-summary="All" role="alert"></div>
+    <!-- The form tag helper adds a hidden anti-forgery token to protect this POST. -->
+    <form method="post">
+        <p><label asp-for="Username">Username:</label>
+        <input asp-for="Username" autocomplete="username" required minlength="3" maxlength="30" pattern="[A-Za-z0-9_-]{3,30}"></p>
+        <p><label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password" autocomplete="current-password" required minlength="15" maxlength="128"></p>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
